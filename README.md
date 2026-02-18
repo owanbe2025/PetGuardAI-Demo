@@ -1,5 +1,11 @@
 # 🐾 PetGuard AI — Public Demo Repository
 
+![Status](https://img.shields.io/badge/status-MVP--Validated-blue)
+![Architecture](https://img.shields.io/badge/architecture-Embedding--Based-green)
+![Backend](https://img.shields.io/badge/backend-FastAPI-orange)
+![Frontend](https://img.shields.io/badge/frontend-Streamlit-red)
+
+
 PetGuard AI is an AI-powered pet identification and recovery platform that matches lost pets using only a photo — without relying on microchips or tags.
 
 This repository contains a **sanitized demonstration version** of the system architecture, API structure, and end-to-end workflow.
