@@ -86,6 +86,21 @@ PetGuard AI uses \*\*embedding-based recognition\*\* (similar to biometric verif
 
 \## Repository structure
 
+## Repository structure
+
+backend/
+  app/
+    main.py
+    services/
+    utils/
+  requirements.txt
+frontend/
+  petguard-ui/
+    app.py
+.gitignore
+README.md
+
+
 
 
 
