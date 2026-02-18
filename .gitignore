@@ -1,0 +1,40 @@
+# Environments
+venv/
+.venv/
+tf213_env/
+tf219_env/
+
+# Python
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+.env.*
+**/.streamlit/secrets.toml
+**/.streamlit/secrets.toml*
+
+# Models / weights / data
+backend/models/
+*.keras
+*.h5
+*.ckpt
+*.pkl
+*.onnx
+*.tflite
+
+# Runtime artifacts
+data/
+*.faiss
+*.json
+tmp_uploads/
+backend/data/
+backend/tmp_uploads/
+
+# Demo/test images
+test_images/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
