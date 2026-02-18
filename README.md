@@ -32,9 +32,9 @@ This repository contains a **sanitized demonstration version** of the system arc
 PetGuard AI uses an **embedding-based recognition system**, similar to biometric verification systems.
 
 ### Step 1 — Image Preprocessing
-- Resize  
-- Normalize  
-- Format validation  
+- Resize
+- Normalize
+- Format validation
 
 ### Step 2 — Deep Model → Embedding Vector
 Each image is converted into a fixed-length numerical signature  
@@ -46,16 +46,18 @@ Embeddings are compared using similarity search
 
 ### Step 4 — Decision Logic
 Based on similarity scores:
-- MATCH_FOUND  
-- POSSIBLE_MATCH  
-- NO_MATCH  
+
+- MATCH_FOUND
+- POSSIBLE_MATCH
+- NO_MATCH
 
 ### Step 5 — Registry Layer
 Stores:
-- Pet metadata  
-- Missing status  
-- Masked contact logic  
-- Share-code protection  
+
+- Pet metadata
+- Missing status
+- Masked contact logic
+- Share-code protection
 
 ---
 
