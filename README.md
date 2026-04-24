@@ -1,4 +1,4 @@
-# 🐾 PetGuard AI — Public Demo Repository
+# 🐾 PetGuard AI / PetFound AI — Public Demo Repository
 
 ![Status](https://img.shields.io/badge/status-MVP--Validated-blue)
 ![Architecture](https://img.shields.io/badge/architecture-Embedding--Based-green)
