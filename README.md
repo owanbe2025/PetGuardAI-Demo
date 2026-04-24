@@ -5,101 +5,133 @@
 ![Backend](https://img.shields.io/badge/backend-FastAPI-orange)
 ![Frontend](https://img.shields.io/badge/frontend-Streamlit-red)
 
+PetGuard AI is an **AI-powered pet identification and recovery platform** that matches lost pets using only a photo — without relying on microchips or tags.
 
-PetGuard AI is an AI-powered pet identification and recovery platform that matches lost pets using only a photo — without relying on microchips or tags.
+This repository contains a **sanitized public demo** of the system architecture, backend services, and AI workflow.
 
-This repository contains a **sanitized demonstration version** of the system architecture, API structure, and end-to-end workflow.
-
-⚠️ Model weights, private datasets, and production infrastructure are intentionally excluded for IP and security protection.
-
----
-
-## 🚀 What This Demo Showcases
-
-### 1️⃣ FastAPI Backend (Architecture Demonstration)
-
-- Pet registration (photo ingestion + metadata)
-- Mark pet as missing / found
-- Finder photo search
-- Similarity-based matching
-- Masked owner contact flow
-
-### 2️⃣ Streamlit Demo Interface
-
-- Registration flow
-- Search flow
-- Match result display
-- Decision explanation (MATCH / POSSIBLE / NO_MATCH)
+⚠️ **Sensitive components such as model weights, datasets, and production infrastructure are intentionally excluded for IP and security protection.**
 
 ---
 
-## 🧠 High-Level AI Architecture
+## 🚀 Live Demo & What It Does
 
-PetGuard AI uses an **embedding-based recognition system**, similar to biometric verification systems.
+### ⚡ Core Capability
+- Upload a pet image
+- Generate AI embeddings
+- Perform similarity search
+- Return match confidence
 
-### Step 1 — Image Preprocessing
-- Resize
-- Normalize
+### 🧪 Demo Features
+- Pet registration (image + metadata)
+- Missing pet reporting
+- Finder upload & search
+- AI similarity matching
+- Decision output:
+  - `MATCH`
+  - `POSSIBLE_MATCH`
+  - `NO_MATCH`
+
+---
+
+## 💡 How It Works (1-Minute Overview)
+
+PetGuard AI uses **deep metric learning** instead of traditional classification.
+
+Instead of predicting a class (e.g., “dog”), the system:
+
+1. Converts each image into a **numerical embedding vector**
+2. Stores embeddings in a **vector index**
+3. Compares new images using **similarity search**
+4. Determines identity based on similarity thresholds
+
+👉 This enables identification of **individual pets**, not just species.
+
+---
+
+## 🧠 System Architecture
+
+Frontend (Streamlit UI)
+↓
+FastAPI Backend
+↓
+Image Preprocessing Pipeline
+↓
+Embedding Model (TensorFlow/Keras)
+↓
+Vector Index (FAISS / Similarity Engine)
+↓
+Decision Logic (Threshold-Based)
+↓
+Pet Registry (Metadata + Status + Contact Layer)
+
+
+
+---
+
+## 🔍 AI Pipeline Breakdown
+
+### 1️⃣ Image Preprocessing
+- Resize & normalize
 - Format validation
+- Input standardization
 
-### Step 2 — Deep Model → Embedding Vector
-Each image is converted into a fixed-length numerical signature  
-(e.g., 128-dimensional embedding vector).
+### 2️⃣ Embedding Generation
+- Deep learning model converts image → vector (e.g., 128-dim)
+- Each pet has a unique numerical signature
 
-### Step 3 — Vector Search
-Embeddings are compared using similarity search  
-(FAISS or equivalent vector index).
+### 3️⃣ Similarity Search
+- Cosine similarity / nearest neighbor search
+- Efficient lookup via FAISS (or equivalent)
 
-### Step 4 — Decision Logic
-Based on similarity scores:
+### 4️⃣ Decision Engine
+Based on similarity score thresholds:
 
-- MATCH_FOUND
-- POSSIBLE_MATCH
-- NO_MATCH
+- `MATCH` → Strong identity match  
+- `POSSIBLE_MATCH` → Requires verification  
+- `NO_MATCH` → No close similarity  
 
-### Step 5 — Registry Layer
-Stores:
+### 5️⃣ Registry Layer
+Handles:
+- Pet metadata storage
+- Missing/Found state
+- Masked owner contact
+- Share-code security logic
 
-- Pet metadata
-- Missing status
-- Masked contact logic
-- Share-code protection
+---
+
+## ⚙️ Key Engineering Features
+
+- Embedding-based recognition (metric learning approach)
+- Modular FastAPI backend architecture
+- Vector similarity search pipeline
+- Threshold-based decision system
+- Image preprocessing service layer
+- Clean separation of backend and UI
+- Streamlit interface for rapid prototyping & demo
 
 ---
 
 ## 🏗 Repository Structure
 
-```
+
 backend/
-  app/
-    main.py
-    services/
-    utils/
-  requirements.txt
+app/
+main.py
+services/
+utils/
+requirements.txt
 
 frontend/
-  petguard-ui/
-    app.py
+petguard-ui/
+app.py
 
 .gitignore
 README.md
-```
+
 
 ---
 
-## 🔐 What Is NOT Included (By Design)
-
-To protect intellectual property and user data, this repository does NOT include:
-
-- Trained model weights (*.keras, *.h5, *.onnx, etc.)
-- Private datasets or real pet images
-- API keys or environment secrets
-- Production deployment configuration
-- Scaling infrastructure details
-
----
-
-## 🧪 How To Run (Demo Only)
+## 🛠️ Run Locally (Demo Setup)
 
 ### Backend
 
@@ -107,46 +139,54 @@ To protect intellectual property and user data, this repository does NOT include
 cd backend
 pip install -r requirements.txt
 uvicorn app.main:app --reload
-```
 
-### Frontend
+Frontend
 
-```bash
 cd frontend/petguard-ui
 streamlit run app.py
-```
 
----
+⚙️ Technology Stack
+Python
+FastAPI
+Streamlit
+TensorFlow / Keras (architecture demo)
+FAISS (vector similarity search)
+NumPy
 
-## ⚙️ Technology Stack
+🔒 Security & IP Notice
 
-- Python
-- FastAPI
-- Streamlit
-- TensorFlow / Keras (architecture demo)
-- FAISS (vector similarity search)
-- NumPy
+This repository is a public demo version of PetGuard AI.
 
----
+The following are intentionally excluded:
 
-## 🎯 Purpose of This Repository
+Trained model weights
+Datasets
+Real pet images / user data
+API keys and environment secrets
+Production infrastructure & deployment configs
+Scaling and optimization strategies
 
-This public demo is intended to:
+This ensures intellectual property protection while demonstrating system design and capabilities.
 
-- Demonstrate technical capability
-- Showcase system design
-- Provide architectural transparency
-- Support investor and collaborator discussions
+🎯 Purpose of This Repository
 
-This is not the full production system.
+This demo is designed to:
 
----
+Showcase AI system architecture
+Demonstrate backend + ML integration
+Present a working similarity-based recognition pipeline
+Support discussions with employers, collaborators, and investors.
 
-## 📌 Project Status
+📌 Project Status
 
-MVP architecture validated.  
-Production hardening and scaling in progress.
+✅ MVP architecture validated
+🚧 Production hardening and scaling in progress...
 
----
+
+🧠 Author
+
+Adekunle Adegoke
+AI Systems Engineer | FastAPI | Machine Learning | AI Infrastructure
 
 © 2026 PetGuard AI
+
